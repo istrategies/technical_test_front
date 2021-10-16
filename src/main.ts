@@ -1,11 +1,14 @@
+import {ObjectBlueprint} from "./lib/first";
+
 export const foo = async (): Promise<void> => {
+
   //#region PART 1
   /**
    * For the first test, we ask you to create an object that
    * contains a name and use a hello function that prints "hello {the person's name}"
    */
-
-  //TODO -->
+  const object = new ObjectBlueprint()
+  await object.hello()
   //#endregion
 
   //#region PART 2
@@ -16,6 +19,8 @@ export const foo = async (): Promise<void> => {
    */
 
   //TODO -->
+
+
   //#endregion
 
   //#region  PART 3
@@ -25,14 +30,15 @@ export const foo = async (): Promise<void> => {
    * First you have to create an array of objects with the data obtained in the .json file
    */
 
-  //TODO -->
+    //TODO -->
+
 
   /**
    * Now we must return the number of times the names are repeated with the following structure
    * { name: string; times: number; }
    */
 
-  //TODO -->
+    //TODO -->
 
   /**
    * According to the previous structure, it orders from highest to lowest,
@@ -40,6 +46,7 @@ export const foo = async (): Promise<void> => {
    * **The number of names to display must be dynamic**
    */
   //TODO -->
+
 
   /**
    * Create a test that checks all of part 3
