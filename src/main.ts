@@ -1,4 +1,6 @@
 import {ObjectBlueprint} from "./lib/first";
+import {freeze} from "./lib/second";
+import {person} from "./lib/types";
 
 export const foo = async (): Promise<void> => {
 
@@ -7,7 +9,7 @@ export const foo = async (): Promise<void> => {
    * For the first test, we ask you to create an object that
    * contains a name and use a hello function that prints "hello {the person's name}"
    */
-  const object = new ObjectBlueprint()
+  let object = new ObjectBlueprint()
   await object.hello()
   //#endregion
 
@@ -17,10 +19,7 @@ export const foo = async (): Promise<void> => {
    * and you have to create a test with Jest that validates that the object is immutable
    * **The test must be in a separate file**
    */
-
-  //TODO -->
-
-
+  object = freeze<person>(object);
   //#endregion
 
   //#region  PART 3
@@ -31,7 +30,6 @@ export const foo = async (): Promise<void> => {
    */
 
     //TODO -->
-
 
   /**
    * Now we must return the number of times the names are repeated with the following structure
@@ -46,9 +44,7 @@ export const foo = async (): Promise<void> => {
    * **The number of names to display must be dynamic**
    */
   //TODO -->
-
-
-  /**
+   /**
    * Create a test that checks all of part 3
    * **The test must be in a separate file**
    */
