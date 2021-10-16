@@ -14,10 +14,18 @@ export function formatData<T extends dataJsonType>(objects: T[]): resumedData[] 
 }
 
 export function retrieveData(array: resumedData[], arraySlice: number): dataJsonType[] {
+  if (arraySlice >= array.length) {
+    console.log('The given number is bigger than/equal to database, all elements served')
+    return array;
+  }
   return array.slice(0, arraySlice);
 }
 
-export function convertToArray(json: {objects: dataJsonType[]}): dataJsonType[]{
+export function sort<T = resumedData>(array: T[], by: keyof T): T[] {
+  return array.sort((a, b) => +b[by] - +a[by])
+}
+
+export function convertToArray(json: { objects: dataJsonType[] }): dataJsonType[] {
   const {objects} = json;
   return objects
 }

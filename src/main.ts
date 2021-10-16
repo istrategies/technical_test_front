@@ -1,6 +1,6 @@
 import {ObjectBlueprint} from "./lib/first";
 import * as dataJson from './data.json'
-import {convertToArray, formatData, retrieveData} from "./lib/third";
+import {convertToArray, formatData, retrieveData, sort} from "./lib/third";
 import {getInput} from "./lib/utils";
 import {freeze} from "./lib/second";
 import {person} from "./lib/types";
@@ -45,7 +45,7 @@ export const foo = async (): Promise<void> => {
    * **The number of names to display must be dynamic**
    */
 
-  formattedData.sort((a, b) => b.times - a.times)
+  sort(formattedData, 'times');
   const number = +await getInput('Insert number of elements to retrieve\n', '3');
   console.log(retrieveData(formattedData, number));
 
