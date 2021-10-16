@@ -28,7 +28,6 @@ async function getInputNode(question: string, _default: string) {
 //Function to get the method to execute
 export async function getInput(question: string, _default: string): Promise<string> {
   if (IS_BROWSER) {
-    console.log('here');
     return await getInputBrowser(question, _default);
   }
   return getInputNode(question, _default);
