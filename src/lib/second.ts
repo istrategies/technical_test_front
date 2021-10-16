@@ -1,3 +1,3 @@
-export function freeze<T>(obj: T): Readonly<T> {
-  return Object.freeze(obj);
+export function freeze<T>(obj: T): void {
+  Object.freeze(obj);
 }
