@@ -1,6 +1,6 @@
 import {ObjectBlueprint} from "./lib/first";
 import * as dataJson from './data.json'
-import {formatData, retrieveData} from "./lib/third";
+import {convertToArray, formatData, retrieveData} from "./lib/third";
 import {getInput} from "./lib/utils";
 import {freeze} from "./lib/second";
 import {person} from "./lib/types";
@@ -32,7 +32,7 @@ export const foo = async (): Promise<void> => {
    * First you have to create an array of objects with the data obtained in the .json file
    */
 
-  const {objects} = dataJson;
+  const objects = convertToArray(dataJson);
   /**
    * Now we must return the number of times the names are repeated with the following structure
    * { name: string; times: number; }

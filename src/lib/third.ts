@@ -16,3 +16,8 @@ export function formatData<T extends dataJsonType>(objects: T[]): resumedData[] 
 export function retrieveData(array: resumedData[], arraySlice: number): dataJsonType[] {
   return array.slice(0, arraySlice);
 }
+
+export function convertToArray(json: {objects: dataJsonType[]}): dataJsonType[]{
+  const {objects} = json;
+  return objects
+}
