@@ -1,4 +1,7 @@
 import {ObjectBlueprint} from "./lib/first";
+import * as dataJson from './data.json'
+import {formatData, retrieveData} from "./lib/third";
+import {getInput} from "./lib/utils";
 import {freeze} from "./lib/second";
 import {person} from "./lib/types";
 
@@ -9,7 +12,7 @@ export const foo = async (): Promise<void> => {
    * For the first test, we ask you to create an object that
    * contains a name and use a hello function that prints "hello {the person's name}"
    */
-  let object = new ObjectBlueprint()
+  const object = new ObjectBlueprint()
   await object.hello()
   //#endregion
 
@@ -19,7 +22,7 @@ export const foo = async (): Promise<void> => {
    * and you have to create a test with Jest that validates that the object is immutable
    * **The test must be in a separate file**
    */
-  object = freeze<person>(object);
+  freeze<person>(object);
   //#endregion
 
   //#region  PART 3
@@ -29,22 +32,24 @@ export const foo = async (): Promise<void> => {
    * First you have to create an array of objects with the data obtained in the .json file
    */
 
-    //TODO -->
-
+  const {objects} = dataJson;
   /**
    * Now we must return the number of times the names are repeated with the following structure
    * { name: string; times: number; }
    */
 
-    //TODO -->
-
+  const formattedData = formatData(objects);
   /**
    * According to the previous structure, it orders from highest to lowest,
    * showing only the first 3, and only returning the name of the person
    * **The number of names to display must be dynamic**
    */
-  //TODO -->
-   /**
+
+  formattedData.sort((a, b) => b.times - a.times)
+  const number = +await getInput('Insert number of elements to retrieve\n', '3');
+  console.log(retrieveData(formattedData, number));
+
+  /**
    * Create a test that checks all of part 3
    * **The test must be in a separate file**
    */
